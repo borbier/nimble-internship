@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_142601) do
+ActiveRecord::Schema.define(version: 2020_02_09_120821) do
 
   create_table "role_resources", force: :cascade do |t|
     t.string "name"
     t.string "resType"
     t.string "resValue"
-    t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_role_resources_on_owner_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_role_resources_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_02_08_142601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.string "role"
+    t.string "encrypted_password"
   end
 
 end
