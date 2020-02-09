@@ -21,6 +21,43 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :firstName %><br />
+    <%= f.text_field :firstName, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastName %><br />
+    <%= f.text_field :lastName, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :citizenId %><br />
+    <%= f.text_field :citizenId, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :role, 'Role' %><br />
+    <%= f.radio_button :role, 'student', :checked => 'student' %>
+    <%= f.label :role_student, 'Student' %>
+    <%= f.radio_button :role, 'teacher', :checked => 'teacher' %>
+    <%= f.label :role_teacher, 'Teacher' %>
+    <%= f.radio_button :role, 'outsider', :checked => 'outsider' %>
+    <%= f.label :role_outsider, 'Outsider' %>
+  </div>
+
+  <div class="reg-role" id="register-student">
+    <%= f.label :studentId, 'Student Id' %><br />
+    <input type="text" name="regStudentId">
+  </div>
+
+  <div class="reg-role" id="register-teacher">
+    <%= f.label :teacherId, 'Teacher Id' %><br />
+    <input type="text" name="regTeacherId"><br />
+    <%= f.label :department, 'Department' %><br />
+    <input type="text" name="regDepartment">
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

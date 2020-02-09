@@ -10,7 +10,21 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  // Registration
+  $(".reg-role").hide();
+  $('input[type="radio"][name="user[role]"]').click(function() {
+    let value = $(this).val();
+    let target = $("#register-" + value);
+    console.log(target);
+    $(".reg-role").not(target).hide();
+    $(target).show();
+  })
+
+});
