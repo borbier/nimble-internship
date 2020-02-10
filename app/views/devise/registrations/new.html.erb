@@ -38,11 +38,11 @@
 
   <div>
     <%= f.label :role, 'Role' %><br />
-    <%= f.radio_button :role, 'student', :checked => 'student' %>
+    <%= f.radio_button :role, 'student', :checked => 0 %>
     <%= f.label :role_student, 'Student' %>
-    <%= f.radio_button :role, 'teacher', :checked => 'teacher' %>
+    <%= f.radio_button :role, 'teacher', :checked => 1 %>
     <%= f.label :role_teacher, 'Teacher' %>
-    <%= f.radio_button :role, 'outsider', :checked => 'outsider' %>
+    <%= f.radio_button :role, 'outsider', :checked => 2 %>
     <%= f.label :role_outsider, 'Outsider' %>
   </div>
 
