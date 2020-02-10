@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_120821) do
+ActiveRecord::Schema.define(version: 2020_02_10_055353) do
 
   create_table "role_resources", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_120821) do
     t.string "email"
     t.string "role"
     t.string "encrypted_password"
+    t.datetime "remember_created_at"
   end
 
 end
