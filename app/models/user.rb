@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   enum role: [:teacher, :student, :outsider]
   has_many :roleResources, dependent: :destroy
+
+  scope :filter_by_role, -> (role) { where role: role }
 end

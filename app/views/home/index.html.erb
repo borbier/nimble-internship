@@ -2,6 +2,18 @@
 
 <% if user_signed_in? %>
   <div><%= current_user.role %> : <%= current_user.firstName %></div>
+  <% if current_user.role.eql? 'teacher'%>
+    <h2>Student list</h2>
+    <% @users = User.filter_by_role('student') %>
+      <% @users.each do |user| %>
+        <div>
+          <p><%= user.firstName%> <%= user.lastName%></p>
+        </div>
+    <% end %>
+  <% end %>
+  <% if current_user.role.eql? 'student' %>
+    <p>Student</p>
+  <% end %>
   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 <% else %>
   <div>
