@@ -1,1 +1,18 @@
-<h1>Index</h1>
+<h1>School Course</h1>
+
+<% if user_signed_in? %>
+  <div><%= current_user.role %> : <%= current_user.firstName %></div>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<% else %>
+  <div>
+    <p>Learn new things online here</p>
+  </div>
+  <div>
+    <p>New User ?</p>
+    <%= button_to "Sign up!", new_user_registration_path, method: :get %><br />
+  </div>
+  <div>
+    <p>Sign in to "learn new things"</p>
+    <%= button_to "Sign in", new_user_session_path, method: :get %><br />
+  </div>
+<% end %>
