@@ -1,0 +1,9 @@
+<h1>Create Course</h1>
+<% if user_signed_in? %>
+  <div><%= current_user.role %> : <%= current_user.firstName %></div>
+  <%= form_for @course do |f|%>
+    <%= label_tag(:name, "Name:") %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+  <% end %>
+<% end %>
