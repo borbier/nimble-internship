@@ -11,8 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # super
-    render plain: params[:user].inspect
     firstName = params[:user][:firstName]
     lastName = params[:user][:lastName]
     password = params[:user][:password]
