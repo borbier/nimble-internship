@@ -1,0 +1,7 @@
+<h1>Groups#edit</h1>
+<p>Let's change from <%= @group.name %> to </p><br />
+<%= form_for ([@course, @group]) do |f|%>
+  <%= label_tag(:name, "Name:") %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>
