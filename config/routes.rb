@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   }
 
   authenticated :user do
-    resources :courses
-    resources :group
+    resources :courses do
+      resources :groups
+    end
   end
 
   root to: 'home#index'
