@@ -1,6 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_course
   
+  def show
+    params[:course_id] = params[:course_id].to_i
+    @group = Group.find(params[:course_id])
+  end
+
   def new
     @group = Group.new
   end
@@ -9,6 +14,12 @@ class GroupsController < ApplicationController
     @group = Group.create group_params
     @course.groups << @group
     redirect_to courses_path
+  end
+
+  def update
+  end
+
+  def delete
   end
 
   private
