@@ -4,7 +4,7 @@
 <ul>
   <% @course.groups.each do |group|%>
     <li>
-      <%= link_to(group.name, course_group_path(:course_id => group.id), method: :get) %>  
+      <%= link_to(group.name, course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>  
       | <span>Update</span>
       | <span>Delete</span>
     </li>
