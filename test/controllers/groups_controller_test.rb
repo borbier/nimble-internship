@@ -1,23 +1,8 @@
 require 'test_helper'
 
 class GroupsControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get groups_show_url
-    assert_response :success
-  end
-
-  test "should get index" do
-    get groups_index_url
-    assert_response :success
-  end
-
-  test "should get delete" do
-    get groups_delete_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get groups_update_url
+  test "should get edit" do
+    get groups_edit_url
     assert_response :success
   end
 
