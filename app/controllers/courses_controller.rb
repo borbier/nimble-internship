@@ -3,6 +3,8 @@ class CoursesController < ApplicationController
   end
 
   def show
+    params[:id] = params[:id].to_i
+    @course = Course.find(params[:id])
   end
 
   def new
