@@ -1,0 +1,10 @@
+<h1>Create group</h1>
+<% if user_signed_in? %>
+  <div><%= current_user.role %> : <%= current_user.firstName %></div>
+  <p>Course : <%= @course.name %></p>
+  <%= form_for ([@course, @group]) do |f|%>
+    <%= label_tag(:name, "Name:") %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+  <% end %>
+<% end %>
