@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :courses
+    resources :group
   end
 
   root to: 'home#index'
