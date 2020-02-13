@@ -1,4 +1,5 @@
 <h1>Groups#edit</h1>
+<%= params.inspect %>
 <p>Let's change from <%= @group.name %> to </p><br />
 <%= form_for ([@course, @group]) do |f|%>
   <%= label_tag(:name, "Name:") %>

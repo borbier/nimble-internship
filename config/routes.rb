@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :courses do
-      resources :groups
+      resources :groups do
+        get 'addStudent'
+        post 'updateAddStudent'
+      end
     end
   end
 
