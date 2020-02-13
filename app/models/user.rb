@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :course_user
   has_many :courses, :through => :course_user
 
+  has_many :group_user
   has_many :groups, :through => :group_user
 end
