@@ -8,7 +8,8 @@
   <ul>
     <% current_user.courses.each do |course| %>
       <li>
-        <%= link_to(course.name, course_path(:id => course.id), method: :get) %>  
+        <%= link_to(course.name, course_path(:id => course.id), method: :get) %>
+        : <%= course.groups.size %> groups
         | <span>Update</span>
         | <span>Delete</span>
       </li>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :groups do
         get 'addStudent'
         post 'updateAddStudent'
+        delete 'deleteStudent'
       end
     end
   end
