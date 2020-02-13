@@ -1,24 +1,26 @@
 class GroupsController < ApplicationController
   before_action :set_course
-  before_action :set_group, only: [:show, :edit, :update]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def new
     @group = Group.new
+    authorize @group
   end
 
   def create
     @group = Group.create group_params
     @course.groups << @group
-    redirect_to courses_path
+    redirect_to course_path(:id => params[:course_id])
   end
 
   def edit
   end
   
   def update
+    authorize @group
     if @group.update(group_params)
       redirect_to course_group_path, notice: "Group name updated"
     else
@@ -52,7 +54,7 @@ class GroupsController < ApplicationController
 
   def destroy
     GroupUser.where(group_id: params[:id].to_i).destroy_all
-    Group.find(params[:id]).destroy
+    @group.destroy
     redirect_to course_path(:id => params[:course_id])
   end
 

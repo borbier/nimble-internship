@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    authorize @course
   end
 
   def create
@@ -26,9 +27,14 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course.destroy
-    CourseUser.where(course_id: params[:id].to_i).destroy_all
-    redirect_to root_path
+    authorize @course
+    if @course.destroy
+      CourseUser.where(course_id: params[:id].to_i).destroy_all
+      redirect_to root_path
+    else
+      flash.now[:alert] = "There was an error deleting the course."
+      redirect_to course_path(id: params[:id])
+    end
   end
 
   private 
