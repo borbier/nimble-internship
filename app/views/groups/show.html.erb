@@ -1,3 +1,13 @@
 <h1>Groups</h1>
 <p><%= @group.name %> | <%= @course.name %></p>
-<%= link_to('Change name', edit_course_group_path, method: :get)%>
+
+<ul>
+  <% @group.users.each do |student| %>
+    <li>
+      <%= student.firstName.concat(" ", student.lastName) %>
+      | Delete
+    </li>
+  <% end %>
+</ul>
+<%= link_to('Add student', course_group_addStudent_path(:group_id => params[:id], :course_id => params[:course_id]), method: :get) %>
+<%= link_to('Change name', edit_course_group_path, method: :get) %>
