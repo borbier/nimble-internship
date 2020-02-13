@@ -5,7 +5,7 @@
   <% @group.users.each do |student| %>
     <li>
       <%= student.firstName.concat(" ", student.lastName) %>
-      | Delete
+      | <%= link_to('Delete', course_group_deleteStudent_path(:group_id => params[:id], :course_id => params[:course_id], :id => student.id), method: :delete, data: {confirm: "Are you sure?"})%>
     </li>
   <% end %>
 </ul>
