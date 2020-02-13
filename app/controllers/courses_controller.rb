@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :set_course
+
   def index
   end
 
@@ -24,9 +26,17 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @course.destroy
+    CourseUser.where(course_id: params[:id].to_i).destroy_all
+    redirect_to root_path
   end
 
-  private def course_params
+  private 
+  def course_params
     params.require(:course).permit(:name)
+  end
+
+  def set_course
+    @course = Course.find(params[:id].to_i)
   end
 end

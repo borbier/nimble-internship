@@ -39,9 +39,6 @@ class GroupsController < ApplicationController
   end
 
   def deleteStudent
-    puts params[:course_id]
-    puts params[:group_id]
-    puts params[:id]
     GroupUser.where(user_id: params[:id].to_i, group_id: params[:group_id].to_i).destroy_all
     CourseUser.where(user_id: params[:id].to_i, course_id: params[:course_id].to_i).destroy_all
     redirect_to course_group_path(:course_id => params[:course_id], :id => params[:group_id])
@@ -51,6 +48,12 @@ class GroupsController < ApplicationController
   end
   
   def delete
+  end
+
+  def destroy
+    GroupUser.where(group_id: params[:id].to_i).destroy_all
+    Group.find(params[:id]).destroy
+    redirect_to course_path(:id => params[:course_id])
   end
 
   private

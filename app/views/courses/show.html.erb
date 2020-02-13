@@ -7,7 +7,7 @@
       <%= link_to(group.name, course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>
       : <%= group.users.size %> people 
       | <%= link_to('Change name', edit_course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>
-      | <span>Delete</span>
+      | <%= link_to('Delete', course_group_path(:course_id => @course.id, :id => group.id), method: :delete, data: { confirm: 'Are you sure?' }) %>
     </li>
   <% end %>
 </ul>

@@ -11,7 +11,7 @@
         <%= link_to(course.name, course_path(:id => course.id), method: :get) %>
         : <%= course.groups.size %> groups
         | <span>Update</span>
-        | <span>Delete</span>
+        | <%= link_to('Delete', course_path(:id => course.id), method: :delete)%>
       </li>
     <% end %>
   </ul>
