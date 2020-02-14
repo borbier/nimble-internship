@@ -26,13 +26,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       when "student"
         puts "student!"
 
-        @studentId = RoleResource.new(name: "StudentId", resType: "string", resValue: params[:regStudentId])
+        @studentId = RoleResource.new(name: "StudentId", res_type: "string", res_value: params[:regStudentId])
         @new_user.roleResources << @studentId
       when "teacher"
         puts "teacher!"
-        @teacherId = RoleResource.create(name: "TeacherId", resType: "string", resValue: params[:regTeacherId])
+        @teacherId = RoleResource.create(name: "TeacherId", res_type: "string", res_value: params[:regTeacherId])
         @new_user.roleResources << @teacherId
-        @department = RoleResource.create(name: "Department", resType: "string", resValue: params[:regDepartmentId])
+        @department = RoleResource.create(name: "Department", res_type: "string", res_value: params[:regDepartmentId])
         @new_user.roleResources << @department
       else
         puts "Nay!"
