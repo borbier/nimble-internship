@@ -4,6 +4,7 @@
 <ul>
   <% @group.users.each do |student| %>
     <li>
+      <b><%= RoleResource.where(user_id: 2, name: 'StudentId').select("res_value").pluck(:res_value)[0] %></b>
       <%= student.firstName.concat(" ", student.lastName) %>
       | <%= link_to('Delete', course_group_deleteStudent_path(:group_id => params[:id], :course_id => params[:course_id], :id => student.id), method: :delete, data: {confirm: "Are you sure?"})%>
     </li>
