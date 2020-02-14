@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'devise'
 gem 'pundit'
 gem 'jquery-rails'
+gem 'rubocop', '~> 0.79.0', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.2.1'
 
