@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_151236) do
+ActiveRecord::Schema.define(version: 2020_02_14_024227) do
 
   create_table "course_users", force: :cascade do |t|
     t.integer "course_id"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_02_12_151236) do
 
   create_table "role_resources", force: :cascade do |t|
     t.string "name"
-    t.string "resType"
-    t.string "resValue"
+    t.string "res_type"
+    t.string "res_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
