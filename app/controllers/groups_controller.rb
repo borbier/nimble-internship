@@ -15,9 +15,6 @@ class GroupsController < ApplicationController
     @course.groups << @group
     redirect_to course_path(:id => params[:course_id])
   end
-
-  def edit
-  end
   
   def update
     authorize @group
@@ -26,12 +23,6 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def put
-  end
-  
-  def delete
   end
 
   def destroy
