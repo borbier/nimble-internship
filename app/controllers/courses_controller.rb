@@ -1,9 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :update, :destroy]
 
-  def index
-  end
-
   def show
     params[:id] = params[:id].to_i
     @course = Course.find(params[:id])
@@ -18,12 +15,6 @@ class CoursesController < ApplicationController
     @course = Course.create course_params
     current_user.courses << Course.where(id: @course.id)
     redirect_to root_path
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
