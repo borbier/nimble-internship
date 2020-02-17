@@ -7,6 +7,7 @@ gem 'devise'
 gem 'pundit'
 gem 'jquery-rails'
 gem 'rubocop', '~> 0.79.0', require: false
+gem 'materialize-sass', '~> 1.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.2.1'
 

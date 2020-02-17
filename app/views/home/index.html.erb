@@ -1,35 +1,34 @@
-<h1>School Course</h1>
-
 <% if user_signed_in? %>
-  <div><%= current_user.role %> : <%= current_user.first_name %></div>
-  
   <% if current_user.role == 'teacher'%>
-  <h4>Courses</h4>
-  <ul>
-    <% current_user.courses.each do |course| %>
-      <li>
-        <%= link_to(course.name, course_path(:id => course.id), method: :get) %>
-        : <%= course.groups.size %> groups
-        | <span>Update</span>
-        | <%= link_to('Delete', course_path(:id => course.id), method: :delete)%>
-      </li>
-    <% end %>
-  </ul>
+  <%= render 'layouts/course_table' %>
   <%= link_to('Add Course', new_course_path, method: :get) %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   <% else %>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   <% end %>
 <% else %>
-  <div>
-    <p>Learn new things online here</p>
-  </div>
-  <div>
-    <p>New User ?</p>
-    <%= button_to "Sign up!", new_user_registration_path, method: :get %><br />
-  </div>
-  <div>
-    <p>Sign in to "learn new things"</p>
-    <%= button_to "Sign in", new_user_session_path, method: :get %><br />
+  <div class="row">
+    <div class="col s6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Haven't used yet?</span>
+          <p>Register for creating and manage new class</p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Sign up!", new_user_registration_path, method: :get %>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col s6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Sign in</span>
+          <p>Manage the class and student or view courses</p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Sign in", new_user_session_path, method: :get %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

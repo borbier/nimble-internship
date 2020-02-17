@@ -1,2 +1,8 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="alert-wrapper">
+<% if not notice.blank? %>
+  <span class="badge blue notice"><%= notice %></span>
+<% end %>
+<% if not alert.blank? %>
+  <span class="badge blue alert"><%= alert %></span>
+<% end %>
+</div>

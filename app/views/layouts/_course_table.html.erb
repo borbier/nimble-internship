@@ -1,0 +1,20 @@
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Groups</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.courses.each do |course| %>
+      <tr>
+        <td><%= link_to(course.name, course_path(:id => course.id), method: :get) %></td>
+        <td><%= course.groups.size %></td>
+        <td><%= link_to('Delete', course_path(:id => course.id), method: :delete)%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NimbleInternship</title>
+    <title>Nimble Internship -- Code Challenge!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,10 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar' %>
     <%= render 'layouts/alert' %>
-    <%= yield %>
+    <div class="page-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
