@@ -3,5 +3,7 @@
 <%= form_for ([@course, @group]) do |f|%>
   <%= label_tag(:name, "Name:") %>
   <%= f.text_field :name %>
-  <%= f.submit "Create" %>
+  <button class="btn waves-effect waves-light">
+    <%= f.submit "Create" %>
+  </button>
 <% end %>

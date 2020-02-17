@@ -1,7 +1,10 @@
 <% if user_signed_in? %>
+  <h2>Dashboard</h2>
+  <button class="btn waves-effect waves-light">
+    <%= button_to('Add Course', new_course_path, method: :get) %>
+  </button>
   <% if current_user.role == 'teacher'%>
   <%= render 'layouts/course_table' %>
-  <%= link_to('Add Course', new_course_path, method: :get) %>
   <% else %>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   <% end %>

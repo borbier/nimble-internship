@@ -1,7 +1,8 @@
-<h1>Groups#addStudent</h1>
-<ul>
+<h1>Add new student</h1>
+
+<ul class="collection">
   <% @students.each do |student| %>
-    <li>
+    <li class="collection-item">
       <%= link_to(student.first_name.concat(" ", student.last_name), course_group_group_students_path(:id => student.id), method: :post) %>
     </li>
   <% end %>

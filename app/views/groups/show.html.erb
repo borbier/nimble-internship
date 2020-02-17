@@ -1,6 +1,12 @@
 <h4><%= @group.name %> | <%= @course.name %></h4>
 
-<%= render 'layouts/student_table' %>
+<span>
+  <button class="btn waves-effect waves-light">
+    <%= button_to('Add student', new_course_group_group_student_path(:group_id => params[:id], :course_id => params[:course_id]), method: :get) %>
+  </button>
+  <button class="btn waves-effect waves-light">
+    <%= button_to('Change name', edit_course_group_path, method: :get) %>
+  </button>
+</span>
 
-<%= link_to('Add student', new_course_group_group_student_path(:group_id => params[:id], :course_id => params[:course_id]), method: :get) %>
-<%= link_to('Change name', edit_course_group_path, method: :get) %>
+<%= render 'layouts/student_table' %>

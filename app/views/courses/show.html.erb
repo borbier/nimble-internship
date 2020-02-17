@@ -1,6 +1,8 @@
 <h1><%= @course.name %></h1>
 
+<button class="btn waves-effect waves-light">
+  <%= button_to('Add Group', new_course_group_path(:course_id => @course.id), method: :get) %>
+</button>
+
 <h4>Groups</h4>
 <%= render 'layouts/group_table' %>
-
-<%= link_to('Add Group', new_course_group_path(:course_id => @course.id), method: :get) %>
