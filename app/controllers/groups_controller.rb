@@ -28,24 +28,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def addStudent
-    @students = User.where(role: 'student')
-  end
-
-  def updateAddStudent
-    @student_append = User.find(params[:id].to_i)
-    @student_append.courses << Course.find(params[:course_id].to_i)
-    @student_append.groups << Group.find(params[:group_id].to_i)
-
-    redirect_to course_group_path(:course_id => params[:course_id], :id => params[:group_id])
-  end
-
-  def deleteStudent
-    GroupUser.where(user_id: params[:id].to_i, group_id: params[:group_id].to_i).destroy_all
-    CourseUser.where(user_id: params[:id].to_i, course_id: params[:course_id].to_i).destroy_all
-    redirect_to course_group_path(:course_id => params[:course_id], :id => params[:group_id])
-  end
-
   def put
   end
   

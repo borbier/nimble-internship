@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   authenticated :user do
     resources :courses do
       resources :groups do
-        get 'addStudent'
-        post 'updateAddStudent'
-        delete 'deleteStudent'
+        resources :group_students, path: :students
       end
     end
   end
