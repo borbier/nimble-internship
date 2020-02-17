@@ -1,14 +1,6 @@
 <h1><%= @course.name %></h1>
 
 <h4>Groups</h4>
-<ul>
-  <% @course.groups.each do |group|%>
-    <li>
-      <%= link_to(group.name, course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>
-      : <%= group.users.size %> people 
-      | <%= link_to('Change name', edit_course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>
-      | <%= link_to('Delete', course_group_path(:course_id => @course.id, :id => group.id), method: :delete, data: { confirm: 'Are you sure?' }) %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'layouts/group_table' %>
+
 <%= link_to('Add Group', new_course_group_path(:course_id => @course.id), method: :get) %>

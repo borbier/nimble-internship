@@ -1,22 +1,9 @@
 <h1>School Course</h1>
 
 <% if user_signed_in? %>
-  <div><%= current_user.role %> : <%= current_user.first_name %></div>
-  
   <% if current_user.role == 'teacher'%>
-  <h4>Courses</h4>
-  <ul>
-    <% current_user.courses.each do |course| %>
-      <li>
-        <%= link_to(course.name, course_path(:id => course.id), method: :get) %>
-        : <%= course.groups.size %> groups
-        | <span>Update</span>
-        | <%= link_to('Delete', course_path(:id => course.id), method: :delete)%>
-      </li>
-    <% end %>
-  </ul>
+  <%= render 'layouts/course_table' %>
   <%= link_to('Add Course', new_course_path, method: :get) %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   <% else %>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   <% end %>
