@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: [:teacher, :student, :outsider]
-  has_many :roleResources, dependent: :destroy
+  has_many :role_resources, dependent: :destroy
 
-  has_many :course_user
-  has_many :courses, :through => :course_user
+  has_many :course_users
+  has_many :courses, through: :course_users
 
-  has_many :group_user
-  has_many :groups, :through => :group_user
+  has_many :group_users
+  has_many :groups, through: :group_users
 end
