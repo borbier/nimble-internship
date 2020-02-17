@@ -1,0 +1,23 @@
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>People</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @course.groups.each do |group| %>
+        <tr>
+          <td><%= link_to(group.name, course_group_path(:course_id => @course.id, :id => group.id), method: :get) %></td>
+          <td><%= group.users.size %></td>
+          <td>
+            <%= link_to('Change name', edit_course_group_path(:course_id => @course.id, :id => group.id), method: :get) %>
+            | <%= link_to('Delete', course_group_path(:course_id => @course.id, :id => group.id), method: :delete, data: { confirm: 'Are you sure?' }) %>
+          </td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+</div>
