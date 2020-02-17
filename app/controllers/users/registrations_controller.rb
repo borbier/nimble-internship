@@ -11,14 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    firstName = params[:user][:firstName]
-    lastName = params[:user][:lastName]
+    first_name = params[:user][:first_name]
+    last_name = params[:user][:last_name]
     password = params[:user][:password]
     email = params[:user][:email]
-    citizenId = params[:user][:citizenId]
+    citizen_id = params[:user][:citizen_id]
     role = params[:user][:role]
 
-    @new_user = User.create(firstName: firstName, lastName: lastName, password: password, email: email, citizenId: citizenId, role: role)
+    @new_user = User.create(first_name: first_name, last_name: last_name, password: password, email: email, citizen_id: citizen_id, role: role)
 
     res_owner_id = @new_user.id
 
@@ -26,14 +26,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       when "student"
         puts "student!"
 
-        @studentId = RoleResource.new(name: "StudentId", res_type: "string", res_value: params[:regStudentId])
-        @new_user.roleResources << @studentId
+        @student_id = RoleResource.new(name: "StudentId", res_type: "string", res_value: params[:regStudentId])
+        @new_user.role_resources << @student_id
       when "teacher"
         puts "teacher!"
-        @teacherId = RoleResource.create(name: "TeacherId", res_type: "string", res_value: params[:regTeacherId])
-        @new_user.roleResources << @teacherId
+        @teacher_id = RoleResource.create(name: "TeacherId", res_type: "string", res_value: params[:regTeacherId])
+        @new_user.role_resources << @teacher_id
         @department = RoleResource.create(name: "Department", res_type: "string", res_value: params[:regDepartmentId])
-        @new_user.roleResources << @department
+        @new_user.role_resources << @department
       else
         puts "Nay!"
     end
