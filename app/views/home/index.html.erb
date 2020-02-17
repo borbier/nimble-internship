@@ -1,7 +1,7 @@
 <h1>School Course</h1>
 
 <% if user_signed_in? %>
-  <div><%= current_user.role %> : <%= current_user.firstName %></div>
+  <div><%= current_user.role %> : <%= current_user.first_name %></div>
   
   <% if current_user.role == 'teacher'%>
   <h4>Courses</h4>
